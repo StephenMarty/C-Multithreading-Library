@@ -1,0 +1,31 @@
+Functions available to user code include:
+
+int thread_create(thread_t *thread, void *(*start_routine)(void *), void *arg);
+void thread_exit(void *status);
+int thread_yield(void);
+int thread_join(thread_t thread, void **retval);
+int mutex_init(mutex *mtx);
+int mutex_lock(mutex *mtx);
+int mutex_trylock(mutex *mtx);
+int mutex_unlock(mutex *mtx);
+int getthreadid(); 
+
+The drivers require no arguments.
+
+./driver1
+driver1 demonstrates simple use of the threading library with two created threads and a main thread.
+(Expensive operations - adding to large numbers)
+
+./driver2
+driver2 shows multiple threads being created which all yield upon creation.
+
+./driver3
+driver3 shows another example of thread yielding in a case that is a bit more normal than driver2.
+
+./driver4
+driver4 shows the use of a mutex lock.
+(Expensive operations - adding to large numbers)
+
+./driver5
+driver5 shows the creation of three different threads besides main.
+(Expensive operations - adding to large numbers)
